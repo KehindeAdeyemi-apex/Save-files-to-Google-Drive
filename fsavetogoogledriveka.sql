@@ -28,14 +28,14 @@ prompt APPLICATION 199 - Experiencing APEX Plugins (SavetoGoogleDrive)
 -- Application Export:
 --   Application:     199
 --   Name:            Experiencing APEX Plugins (SavetoGoogleDrive)
---   Date and Time:   11:34 Sunday March 28, 2021
+--   Date and Time:   11:59 Sunday March 28, 2021
 --   Exported By:     HUMBRE
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      3
 --       Items:                    5
 --       Processes:                5
---       Regions:                  6
+--       Regions:                  5
 --       Buttons:                  2
 --     Shared Components:
 --       Logic:
@@ -99,7 +99,7 @@ wwv_flow_api.create_flow(
 ,p_authentication_id=>wwv_flow_api.id(34867980104016395)
 ,p_application_tab_set=>1
 ,p_logo_type=>'T'
-,p_logo_text=>'Blog Post Plugins'
+,p_logo_text=>'Kehinde Adeyemi''s Oracle APEX Plugins'
 ,p_app_builder_icon_name=>'app-icon.svg'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
@@ -115,7 +115,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Blog Post Plugins'
 ,p_last_updated_by=>'HUMBRE'
-,p_last_upd_yyyymmddhh24miss=>'20210328113130'
+,p_last_upd_yyyymmddhh24miss=>'20210328115732'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>3
 ,p_ui_type_name => null
@@ -11317,7 +11317,7 @@ wwv_flow_api.create_user_interface(
 ,p_navigation_list_id=>wwv_flow_api.id(34868777723016399)
 ,p_navigation_list_position=>'SIDE'
 ,p_navigation_list_template_id=>wwv_flow_api.id(34974935259016513)
-,p_nav_list_template_options=>'#DEFAULT#:t-TreeNav--styleA:js-navCollapsed--hidden'
+,p_nav_list_template_options=>'#DEFAULT#:js-defaultCollapsed:js-navCollapsed--hidden:t-TreeNav--styleA'
 ,p_css_file_urls=>'#APP_IMAGES#app-icon.css?version=#APP_VERSION#'
 ,p_nav_bar_type=>'LIST'
 ,p_nav_bar_list_id=>wwv_flow_api.id(35008121406016576)
@@ -11353,11 +11353,11 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(35008462716016578)
 ,p_name=>'Home'
 ,p_alias=>'HOME'
-,p_step_title=>'Blog Post Plugins'
+,p_step_title=>'Kehinde Adeyemi''s Blogpost Plugins'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'HUMBRE'
-,p_last_upd_yyyymmddhh24miss=>'20210328112753'
+,p_last_upd_yyyymmddhh24miss=>'20210328114951'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(22507957573028838)
@@ -11384,40 +11384,6 @@ wwv_flow_api.create_page_plug(
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
-);
-wwv_flow_api.create_report_region(
- p_id=>wwv_flow_api.id(22508411945028843)
-,p_name=>'New'
-,p_template=>wwv_flow_api.id(34923205096016464)
-,p_display_sequence=>30
-,p_include_in_reg_disp_sel_yn=>'Y'
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_component_template_options=>'#DEFAULT#:t-Report--altRowsDefault:t-Report--rowHighlight'
-,p_display_point=>'BODY'
-,p_source_type=>'NATIVE_SQL_REPORT'
-,p_query_type=>'SQL'
-,p_source=>'SELECT C001 FROM APEX_COLLECTIONS'
-,p_ajax_enabled=>'Y'
-,p_query_row_template=>wwv_flow_api.id(34952124024016491)
-,p_query_num_rows=>15
-,p_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
-,p_pagination_display_position=>'BOTTOM_RIGHT'
-,p_csv_output=>'N'
-,p_prn_output=>'N'
-,p_sort_null=>'L'
-,p_plug_query_strip_html=>'N'
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(22508510443028844)
-,p_query_column_id=>1
-,p_column_alias=>'C001'
-,p_column_display_sequence=>10
-,p_column_heading=>'C001'
-,p_use_as_row_header=>'N'
-,p_disable_sort_column=>'N'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(35019250154016647)
@@ -11509,16 +11475,18 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'HUMBRE'
-,p_last_upd_yyyymmddhh24miss=>'20210328064246'
+,p_last_upd_yyyymmddhh24miss=>'20210328115652'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(35012580461016616)
-,p_plug_name=>'Blog Post Plugins'
+,p_plug_name=>'Kehinde Adeyemi''s Oracle APEX Plugins'
 ,p_icon_css_classes=>'app-icon'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(34921967829016462)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'BODY'
+,p_plug_source=>'Use Application Express Authentication credentials'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
