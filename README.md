@@ -4,7 +4,7 @@ This Oracle APEX plugin allows end users to upload files to Google Drive.
 PRE-REQUISITES
 
 Ensure you have configured REST APIs for your google drive account to retrieve refresh token,Client ID,Client secret and API Keys for use in the Plugin. 
-I have attached a step by step guide for this.
+I have attached a step by step guide (Configure Google Drive API for Gmail Users.pdf).
 
 PLUGIN INSTALLATION
 
