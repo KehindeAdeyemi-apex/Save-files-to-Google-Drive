@@ -32,4 +32,4 @@ On an APEX Application page:
 
 SAMPLE APPLICATION
 
-Install sample application f199.sql to see plugin in action
+Install sample application fsavetogoogledriveka.sql to see plugin in action
