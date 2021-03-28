@@ -23,12 +23,12 @@ wwv_flow_api.import_begin (
 end;
 /
  
-prompt APPLICATION 199 - Experiencing APEX Plugins
+prompt APPLICATION 199 - Experiencing APEX Plugins (SavetoGoogleDrive)
 --
 -- Application Export:
 --   Application:     199
---   Name:            Experiencing APEX Plugins
---   Date and Time:   09:11 Sunday March 28, 2021
+--   Name:            Experiencing APEX Plugins (SavetoGoogleDrive)
+--   Date and Time:   11:43 Sunday March 28, 2021
 --   Exported By:     HUMBRE
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -145,7 +145,7 @@ wwv_flow_api.create_plugin(
 '      THEN',
 '         l_access_token:=NULL;',
 '   END;',
-'   apex_collection.create_or_truncate_collection(''TEST'');',
+'   ',
 '       l_file_names := apex_util.string_to_table(v(l_filebrowse_item));',
 '   -----------Upload file(s) from apex_application_temp_files',
 '  for h in 1 .. l_file_names.count loop',
@@ -153,11 +153,7 @@ wwv_flow_api.create_plugin(
 '         ) loop',
 '         COMMIT;',
 '   BEGIN',
-'   apex_collection.add_member(p_collection_name => ''TEST'',p_c001 => i.filename||''acc''||l_access_token);',
-'    apex_collection.add_member(p_collection_name => ''TEST'',p_c001 => i.filename||''ref''||l_refresh_token);',
-'    apex_collection.add_member(p_collection_name => ''TEST'',p_c001 => i.filename||''cid''||l_client_id);',
-'    apex_collection.add_member(p_collection_name => ''TEST'',p_c001 => i.filename||''csecret''||l_client_secret);',
-'   commit;',
+'',
 '   ',
 '   SELECT substr(i.filename,instr(i.filename,''.'',-1,1) - length(i.filename)  ) b',
 '   into l_ext',
@@ -232,7 +228,7 @@ wwv_flow_api.create_plugin(
 '      into l_fileid',
 '      FROM   dual;',
 '',
-'      apex_collection.add_member(p_collection_name => ''TEST'',p_c001 => ''fileid''||l_fileid);',
+'',
 '		 ',
 '		 ',
 '	EXCEPTION',
@@ -335,7 +331,7 @@ wwv_flow_api.create_plugin(
 '                                             p_wallet_path   => NULL,',
 '                                             p_wallet_pwd    => '''');',
 '',
-'    l_preview_urls:=l_preview_urls||chr(13)||chr(10)||l_preview_url ;',
+'    l_preview_urls:=l_preview_urls||chr(13)||chr(10)||l_preview_url;',
 '    l_count:=l_count+1;',
 '',
 '   EXCEPTION',
@@ -347,7 +343,7 @@ wwv_flow_api.create_plugin(
 '   END LOOP;',
 'END LOOP;',
 ' ',
-' if l_preview_urls is not null then',
+' if l_preview_url is not null then',
 '  --',
 'apex_util.set_session_state(l_generated_urls,l_preview_urls);',
 '  ',
