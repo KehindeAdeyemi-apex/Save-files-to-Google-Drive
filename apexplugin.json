@@ -13,7 +13,7 @@
   "author" : {
     "name" : "Kehinde Adeyemi",
     "email" : "kadeyemionapex@gmail.com",
-    "url" : "kadeyemionapex.blogspot.com"
+    "url" : "https://kadeyemionapex.blogspot.com/"
   },
   "repository" : {
     "type" : "git",
@@ -27,7 +27,7 @@
         "internalName" : "PRC.KADEYEMIAPEX.SAVETOGOOGLEDRIVE",
         "type" : "process",
         "demo" : "https://okxj1b8mjlndfdv-db202001082126.adb.us-phoenix-1.oraclecloudapps.com/ords/r/humbre/blog-post-plugins/login",
-        "previewImage" : "https://github.com/KehindeAdeyemi-apex/Save-files-to-Google-Drive/blob/main/preview.png"
+        "previewImage" : "https://raw.githubusercontent.com/KehindeAdeyemi-apex/Save-files-to-Google-Drive/main/preview.png"
       }
     }
   }
