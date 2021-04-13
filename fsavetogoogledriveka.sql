@@ -28,7 +28,7 @@ prompt APPLICATION 199 - Experiencing APEX Plugins (SavetoGoogleDrive)
 -- Application Export:
 --   Application:     199
 --   Name:            Experiencing APEX Plugins (SavetoGoogleDrive)
---   Date and Time:   11:59 Sunday March 28, 2021
+--   Date and Time:   07:30 Tuesday April 13, 2021
 --   Exported By:     HUMBRE
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -115,7 +115,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Blog Post Plugins'
 ,p_last_updated_by=>'HUMBRE'
-,p_last_upd_yyyymmddhh24miss=>'20210328115732'
+,p_last_upd_yyyymmddhh24miss=>'20210413070409'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>3
 ,p_ui_type_name => null
@@ -10821,6 +10821,9 @@ wwv_flow_api.create_plugin(
 '--',
 '--  GitHub: https://github.com/',
 '--',
+'--',
+'-- Modified on 13.04.2021 to ensure metadata is displayed correctly after upload',
+'--',
 '-- =============================================================================',
 '',
 'function render',
@@ -10860,6 +10863,11 @@ wwv_flow_api.create_plugin(
 '   l_rest_linkurl        VARCHAR2 (1000);',
 '   l_response_linkclob   CLOB;',
 '   l_preview_url     VARCHAR2(500);',
+'',
+'',
+'    /*****Added 13th Apr 2021*******/',
+'   l_rest_nameurl        VARCHAR2 (1000);',
+'   l_response_nameclob   CLOB;',
 '   ',
 '   ',
 '   l_rest_permissionurl        VARCHAR2 (1000);',
@@ -11050,6 +11058,32 @@ wwv_flow_api.create_plugin(
 '         l_access_token:=NULL;',
 '   END;',
 '',
+'   ------------13.04.2021  set metadata',
+'       BEGIN',
+'   l_rest_nameurl     :=''https://www.googleapis.com/drive/v3/files/''||l_fileid||''?key=''||l_api_key;',
+'       apex_web_service.g_request_headers.delete ();',
+'	apex_web_service.g_request_headers (1).name := ''Content-Type'';',
+'    apex_web_service.g_request_headers (1).value := ''application/json'';---l_mimetype;',
+'    apex_web_service.g_request_headers (2).name := ''Authorization'';',
+'    apex_web_service.g_request_headers (2).value := ''Bearer '' || l_access_token;',
+'    apex_web_service.g_request_headers (3).name := ''Accept'';',
+'    apex_web_service.g_request_headers (3).value := ''application/json'';',
+'    ---- Generate payload',
+'       l_payload :=',
+'       ''{',
+'"name": "''||i.filename||''",',
+'"mimeType": "''||l_mimetype||''"',
+'}'';',
+'      apex_json.parse(l_payload);',
+'      -- 3. Call Web Service.',
+'      l_response_nameclob :=',
+'         apex_web_service.make_rest_request (p_url           => l_rest_nameurl,',
+'                                             p_http_method   => ''PATCH'',',
+'                                             p_body          => l_payload,',
+'                                             p_wallet_path   => NULL,',
+'                                             p_wallet_pwd    => '''');',
+'END;',
+'',
 '-------------Get permission',
 '',
 '',
@@ -11124,7 +11158,8 @@ wwv_flow_api.create_plugin(
 ,p_execution_function=>'render'
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
-,p_version_identifier=>'1.0.1'
+,p_version_identifier=>'1.0.2'
+,p_plugin_comment=>'****Update made on the 13th April to ensure metadata is updated correctly'
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(35022160623136311)
@@ -11475,7 +11510,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'HUMBRE'
-,p_last_upd_yyyymmddhh24miss=>'20210328115652'
+,p_last_upd_yyyymmddhh24miss=>'20210328150337'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(35012580461016616)
@@ -11485,8 +11520,8 @@ wwv_flow_api.create_page_plug(
 ,p_plug_template=>wwv_flow_api.id(34921967829016462)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'BODY'
-,p_plug_source=>'Use Application Express Authentication credentials'
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'<b>username/password:   plugin_demo/demo1234567$</b>'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
